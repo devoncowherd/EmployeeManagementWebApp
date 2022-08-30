@@ -2,10 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employees</title>
+    <title>Employee Management</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
-<body>
-  <h1>Employee List</h1>
-  <a href="index">Homepage</a>
+<body style="background-color:rgb(20,20,20)">
+  <h1 class="text-center text-light">Employee Management</h1>
+    <div class="container-fluid text-center">
+        <table class="table table-bordered table-responsive">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                <th:block th:each="employee : ${employeeEntityList}">
+                    <tr>
+                        <td>[[${employee.id}]]</td>
+                        <td>[[${employee.name}]]</td>
+                        <td>[[${employee.email}]]</td>
+                        <td>[[${employee.gender}]]</td>
+                        <td>[[${employee.country}]]</td>
+                        <td>
+                            <a class="h6 link-primary">Edit</a>
+                            <br>
+                            <a class="h6 link-danger">Delete</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+        <div class="m-2">
+            <a class="h3 link-success" th:href="@{/employee/new}">Add Employee</a>
+        </div>
+    </div>
 </body>
 </html>
