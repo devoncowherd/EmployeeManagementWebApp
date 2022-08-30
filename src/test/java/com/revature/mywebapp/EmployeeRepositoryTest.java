@@ -19,12 +19,12 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void testAddNewEmployee() {
-        EmployeeEntity employee = new EmployeeEntity();
+        Employee employee = new Employee();
         employee.setCountry("Japan");
         employee.setEmail("kkujo@revature.com");
         employee.setGender("Female");
         employee.setName("Karen Kujo");
-        EmployeeEntity savedEmployee = repository.save(employee);
+        Employee savedEmployee = repository.save(employee);
 
         Assertions.assertThat(savedEmployee).isNotNull();
         Assertions.assertThat(savedEmployee.getId()).isGreaterThan(0);
@@ -32,10 +32,10 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void testListAll() {
-        Iterable<EmployeeEntity> allEmployees = repository.findAll();
+        Iterable<Employee> allEmployees = repository.findAll();
         Assertions.assertThat(allEmployees).hasSizeGreaterThan(0);
 
-        for(EmployeeEntity employee : allEmployees){
+        for(Employee employee : allEmployees){
             System.out.println(employee.toString());
         }
 
@@ -44,12 +44,12 @@ public class EmployeeRepositoryTest {
     @Test
     public void testUpdate(){
         Integer userId = 9;
-        Optional<EmployeeEntity> optionalEmployee = repository.findById(userId);
-        EmployeeEntity employee = optionalEmployee.get();
+        Optional<Employee> optionalEmployee = repository.findById(userId);
+        Employee employee = optionalEmployee.get();
         employee.setCountry("JP");
         repository.save(employee);
 
-        EmployeeEntity updatedEmployee = repository.findById(userId).get();
+        Employee updatedEmployee = repository.findById(userId).get();
         Assertions.assertThat(updatedEmployee.getCountry()).isEqualTo("JP");
         System.out.println(updatedEmployee.toString());
     }
@@ -58,8 +58,8 @@ public class EmployeeRepositoryTest {
     @Test
     public void testGetById(){
         Integer userId = 8;
-        Optional<EmployeeEntity> optionalEmployee = repository.findById(userId);
-        EmployeeEntity employee = optionalEmployee.get();
+        Optional<Employee> optionalEmployee = repository.findById(userId);
+        Employee employee = optionalEmployee.get();
         Assertions.assertThat(optionalEmployee.get()).isNotNull();
         System.out.println(optionalEmployee.get().toString());
     }
@@ -67,7 +67,7 @@ public class EmployeeRepositoryTest {
     @Test
     public void testDeleteEmployeeById(){
         Integer userId = 9;
-        Optional<EmployeeEntity> optionalEmployee = repository.findById(userId);
+        Optional<Employee> optionalEmployee = repository.findById(userId);
         if(optionalEmployee.isPresent()){
             repository.deleteById(userId);
             Assertions.assertThat(optionalEmployee).isNotPresent();

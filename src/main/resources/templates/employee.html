@@ -5,8 +5,11 @@
     <title>Employee Management</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
-<body style="background-color:rgb(20,20,20)">
+<body style="background-color:rgb(20,20,20); margin:24px;">
   <h1 class="text-center text-light">Employee Management</h1>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
     <div class="container-fluid text-center">
         <table class="table table-bordered table-responsive">
             <thead class="table-light">
@@ -20,24 +23,29 @@
                 </tr>
             </thead>
             <tbody class="table-light">
-                <th:block th:each="employee : ${employeeEntityList}">
-                    <tr>
+                <th:block th:each="employee : ${employeeList}">
+                    <tr class="justify-content-center">
                         <td>[[${employee.id}]]</td>
                         <td>[[${employee.name}]]</td>
                         <td>[[${employee.email}]]</td>
                         <td>[[${employee.gender}]]</td>
                         <td>[[${employee.country}]]</td>
                         <td>
-                            <a class="h6 link-primary">Edit</a>
+                            <button style="min-width:128px;" class="btn btn-dark">
+                                <a style="color:whitesmoke; text-decoration: none;" class="btn-link" th:href="@{'/employee/edit/' + ${employee.id}}">Edit</a>
+                            </button>
                             <br>
-                            <a class="h6 link-danger">Delete</a>
+                            <button  style="min-width: 128px;" class="btn btn-danger">
+                                <a style="color:whitesmoke; text-decoration: none;" class="btn-link" th:href="@{'/employee/delete/' + ${employee.id}}">Delete</a>
+                            </button>
+
                         </td>
                     </tr>
                 </th:block>
             </tbody>
         </table>
         <div class="m-2">
-            <a class="h3 link-success" th:href="@{/employee/new}">Add Employee</a>
+            <a class="h4 link-success" th:href="@{/employee/new}">ADD EMPLOYEE</a>
         </div>
     </div>
 </body>

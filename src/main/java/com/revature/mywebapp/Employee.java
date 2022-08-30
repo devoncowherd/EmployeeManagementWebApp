@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "employee", schema = "hibernate_tester")
-public class EmployeeEntity {
+public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -67,7 +67,7 @@ public class EmployeeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EmployeeEntity that = (EmployeeEntity) o;
+        Employee that = (Employee) o;
         return id == that.id && Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(gender, that.gender) && Objects.equals(country, that.country);
     }
 
