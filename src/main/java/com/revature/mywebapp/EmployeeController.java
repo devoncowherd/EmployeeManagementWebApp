@@ -26,6 +26,7 @@ public class EmployeeController {
     @GetMapping("/employee/new")
     public String showNewEmployeeForm(Model model){
         model.addAttribute("employee", new Employee());
+        model.addAttribute("pageTitle", "Add Employee");
         return "employee_form";
     }
 
@@ -36,13 +37,13 @@ public class EmployeeController {
         return "redirect:/employee";
     }
 
-    @GetMapping("employee/edit/{id}")
+    @GetMapping("/employee/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id,Model model, RedirectAttributes redirectAttributes){
         try {
             Employee employee = employeeService.getEmployee(id);
             model.addAttribute("employee", employee);
             model.addAttribute("pageTitle", "Update Employee - ID : " + id);
-            return "redirect:/employee_form";
+            return "employee_form";
         } catch(EmployeeNotFoundException e){
             redirectAttributes.addFlashAttribute("message", "Update Failed!");
             return "redirect:/employee";
