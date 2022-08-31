@@ -26,8 +26,12 @@ public class EmployeeService {
         }
         throw new EmployeeNotFoundException("Could Not Find Employee With ID " + employeeId + ". \nPlease try again");
     }
-    public void deleteEmployee(Employee employee){
-
+    public void deleteEmployee(Integer employeeId) throws EmployeeNotFoundException{
+        Long count = employeeRepository.countById(employeeId);
+        if(count == null || count == 0){
+            throw new EmployeeNotFoundException("Could Not Find Employee With ID " + employeeId + ". \nPlease try again");
+        }
+        employeeRepository.deleteById(employeeId);
     }
 
 

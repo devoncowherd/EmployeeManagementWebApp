@@ -49,8 +49,16 @@ public class EmployeeController {
             return "redirect:/employee";
         }
     }
-    @DeleteMapping
-    public String deleteEmployee(){
+    @GetMapping("/employee/delete/{id}")
+    public String deleteEmployee(@PathVariable("id") Integer id,Model model, RedirectAttributes redirectAttributes){
+        try {
+            employeeService.deleteEmployee(id);
+            redirectAttributes.addFlashAttribute("Employee with ID #" + id +  "Deleted");
+        } catch(EmployeeNotFoundException e){
+            redirectAttributes.addFlashAttribute("message", "Delete Failed!");
+            return "redirect:/employee";
+        }
         return "redirect:/employee";
+
     }
 }
