@@ -1,6 +1,9 @@
 
 # Employee Management System
 ![pre-p1](https://user-images.githubusercontent.com/71043147/187758795-07575866-c535-45db-abf9-94c6253c1b5f.JPG)
+
+![EmployeeCrud](https://user-images.githubusercontent.com/71043147/187760920-12078493-06da-4adc-a859-10f2e7215e39.gif)
+
 ---
 
 - This web application stores employee Name, Email, Gender, and Country.
