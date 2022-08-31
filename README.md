@@ -6,7 +6,7 @@
 - This web application stores employee Name, Email, Gender, and Country.
 
 
-### Authors
+### Contributors
 
 ---
 
