@@ -1,5 +1,6 @@
 
-# Employee Management System
+# Employee ![pre-p1](https://user-images.githubusercontent.com/71043147/187758795-07575866-c535-45db-abf9-94c6253c1b5f.JPG)
+Management System
 
 ---
 
