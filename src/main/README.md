@@ -1,3 +1,4 @@
+
 # Employee Management System
 
 ---
@@ -5,7 +6,13 @@
 - This web application stores employee Name, Email, Gender, and Country.
 
 
-# Dependencies
+### Authors
+
+---
+
+- [Devon Cowherd](https://github.com/devoncowherd)
+
+### Dependencies
 
 ---
 
@@ -22,8 +29,19 @@
   - bootstrap
   - locator.core
 
-# Resources
+### Resources
 
 ---
 
+- [Maven Dependency Management](https://www.jetbrains.com/help/idea/work-with-maven-dependencies.html)
+- [Hibernate Version](https://hibernate.org/orm/releases/)
+- [IntelliJ Idea. Working with Hibernate/JPA](https://www.youtube.com/watch?v=QJddHc41xrM)
 - [Code Java](https://youtu.be/u8a25mQcMOI)
+
+
+---
+
+### Notes:
+
+- Please ensure your JRE/JDK matches the appropriate project structure/ dependencies
+- Have Fun :D
