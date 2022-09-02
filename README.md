@@ -19,9 +19,11 @@
 
 ---
 
-- JDK/JRE 1.8.0
+- JDK/JRE 
+  - 1.8.0
 - Spring Web
-- Hibernate 5.6.10
+- Hibernate 
+  - 5.6.10
 - Spring Data JPA
 - Thymeleaf
   - 5.3.15
